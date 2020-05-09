@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +20,9 @@ public class Main {
         System.out.println("Min  = " + Track.findMin(tracks));
         System.out.println("Max  = " + Track.findMax(tracks));
 
-
+        System.out.println("Album time: " + Album.calculateAlbumTimeStream(tracks));
+        System.out.println("Album time: " + Album.calculateAlbumTimeFor(tracks));
+        Integer count = Stream.of(1, 2, 3, 4, 5).reduce(0, (integer, integer2) -> integer + integer2);
 
     }
 }
