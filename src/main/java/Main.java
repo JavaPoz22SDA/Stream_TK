@@ -23,13 +23,10 @@ public class Main {
 
         List<Album> albums = Arrays.asList(album,album1,album2,album3);
 
-
-
         List<Track> trackList = new ArrayList<Track>() { };
+        //ZAD 1
+        System.out.println("Zadanie 1");
         String s = tracks.stream().min(Comparator.comparing(Track::getTime)).toString();
-        //Optional<Track> min = tracks.stream().min(Comparator.comparing(Track::getName));
-        //Optional<Track> max = tracks.stream().max(Comparator.comparing(Track::getName));
-       // System.out.println(s);
         System.out.println("Min stream = " +Track.findMinStream(tracks));
         System.out.println("Max strean = " + Track.findMaxStream(tracks));
         System.out.println();
@@ -39,11 +36,20 @@ public class Main {
         System.out.println("Min  = " + Track.findMin(tracks));
         System.out.println("Max  = " + Track.findMax(tracks));
 
+        //ZAD 2
+        System.out.println("Zadanie 2");
         System.out.println("Album time: " + Album.calculateAlbumTimeStream(tracks));
         System.out.println("Album time: " + Album.calculateAlbumTimeFor(tracks));
         Integer count = Stream.of(1, 2, 3, 4, 5).reduce(0, (integer, integer2) -> integer + integer2);
 
+        //ZAD 3
+        System.out.println("Zadanie 3");
         System.out.println(Artist.getNamesAndOrigins(artists).toString());
         System.out.println(Album.getAlbumWithAtMostThreeTracks(albums));
+
+        //ZAD 4
+        System.out.println("Zadanie 4");
+        System.out.println(album.findLongTracks(albums));
+        System.out.println(album.findLongTracksStream(albums));
     }
 }

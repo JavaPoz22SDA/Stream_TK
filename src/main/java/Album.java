@@ -1,5 +1,8 @@
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Album {
     private List<Track> tracks;
@@ -33,5 +36,25 @@ public class Album {
                 //"tracks=" + tracks +
                 ", name='" + name + '\'' +
                 '}';
+    }
+    public Set<String> findLongTracks(List<Album> albums){
+        Set<String> trackNames=new HashSet<>();
+        for(Album album: albums){
+            for(Track track:album.tracks){
+                if(track.getTime()>400){
+                    String name=track.getName();
+                    trackNames.add(name);
+                }
+            }
+        }
+        return trackNames;
+    }
+    public Set<String> findLongTracksStream(List<Album> albums){
+            return albums
+                    .stream()
+                    .flatMap(album -> album.tracks.stream())
+                    .filter(track -> track.getTime() > 400)
+                    .map(Track::getName)
+                    .collect(Collectors.toSet());
     }
 }
